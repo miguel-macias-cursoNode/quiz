@@ -36,7 +36,13 @@ exports.answer = function (req, res) {
         });
 };
 exports.index = function (req, res) {
-    models.Quiz.findAll().then(
+    var opsQuery = {
+        order: 'pregunta'
+    };
+    if (/\S/.test(req.query.search)) {
+        opsQuery.where = ['pregunta like ?', '%' + req.query.search.replace(/\s+/g, '%') + '%'];
+    }
+    models.Quiz.findAll(opsQuery).then(
         function (quizes) {
             res.render('quizes/index.ejs', { quizes: quizes });
         }
