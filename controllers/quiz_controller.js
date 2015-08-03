@@ -72,7 +72,12 @@ exports.create = function (req, res) {
         .save(
         { fields: ["pregunta", "respuesta"] }
     )
-        .then(
+    .error(
+        function (errors) {
+            res.render('quizes/new', { quiz: quiz, errors: errors });
+        }
+    )
+        .success(
         function () {
             res.redirect('/quizes');
         }
