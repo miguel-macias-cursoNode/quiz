@@ -36,15 +36,18 @@ exports.answer = function (req, res) {
         });
 };
 exports.index = function (req, res) {
-    var opsQuery = {
+    var buscando, opsQuery; 
+    
+    buscando = req.query.search || '';
+    opsQuery = {
         order: 'pregunta'
     };
-    if (/\S/.test(req.query.search || '')) {
-        opsQuery.where = ['pregunta like ?', '%' + req.query.search.replace(/\s+/g, '%') + '%'];
+    if (/\S/.test(buscando)) {
+        opsQuery.where = ['pregunta like ?', '%' + buscando.replace(/\s+/g, '%') + '%'];
     }
     models.Quiz.findAll(opsQuery).then(
         function (quizes) {
-            res.render('quizes/index.ejs', { quizes: quizes });
+            res.render('quizes/index.ejs', { quizes: quizes, search: buscando });
         }
     ).catch(function (error) { next(error); });
 };
