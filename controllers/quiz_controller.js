@@ -39,7 +39,7 @@ exports.index = function (req, res) {
     var opsQuery = {
         order: 'pregunta'
     };
-    if (/\S/.test(req.query.search)) {
+    if (/\S/.test(req.query.search || '')) {
         opsQuery.where = ['pregunta like ?', '%' + req.query.search.replace(/\s+/g, '%') + '%'];
     }
     models.Quiz.findAll(opsQuery).then(
