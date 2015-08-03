@@ -43,7 +43,9 @@ exports.index = function (req, res) {
         order: 'pregunta'
     };
     if (/\S/.test(buscando)) {
-        opsQuery.where = ['lower(pregunta) like ?', ('%' + buscando.toLowerCase().replace(/\s+/g, '%') + '%').replace(/%{2,}/g, '%')]};
+        opsQuery.where = [
+            'lower(pregunta) like ?', 
+            ('%' + buscando.toLowerCase().replace(/\s+/g, '%') + '%').replace(/%{2,}/g, '%')];
     }
     models.Quiz.findAll(opsQuery).then(
         function (quizes) {
