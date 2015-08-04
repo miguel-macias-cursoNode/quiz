@@ -83,3 +83,28 @@ exports.create = function (req, res) {
         }
     );
 };
+exports.edit = function (req, res) {
+    var quiz = req.quiz;    // viene del autoLoad
+
+    res.render('quizes/edit', { quiz: quiz, errors: {} });
+};
+exports.update = function (req, res) {
+    req.quiz.pregunta = req.body.quiz.pregunta;
+    req.quiz.respuesta = req.body.quiz.respuesta;
+    // guarda en BD
+    // validación automática al salvar
+    req.quiz
+        .save(
+        { fields: ["pregunta", "respuesta"] }
+    )
+    .error(
+        function (errors) {
+            res.render('quizes/edit', { quiz: req.quiz, errors: errors });
+        }
+    )
+        .success(
+        function () {
+            res.redirect('/quizes');
+        }
+    );
+};
