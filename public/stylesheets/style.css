@@ -37,3 +37,9 @@ a.boton {
     padding: 0 2px;
     font-size: smaller;
 }
+td.tema {
+    font-weight:bold;
+    background-color:#999;
+    color: white;
+    text-align:left;
+}
