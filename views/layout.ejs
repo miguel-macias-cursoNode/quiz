@@ -25,7 +25,7 @@
         <span><a href="/author">Cr&eacute;ditos</a></span>
     </nav>
     <section class="main" id="s1">
-		<% if (Object(errors).keys().length) { %>
+		<% if (Object.keys(Object(errors)).length) { %>
 		<span id="ErrorMsgs">Corregir errores:<br />
 		  <% for (var e in errors) { %>
 		  <span><%= errors[e].message %></span>
