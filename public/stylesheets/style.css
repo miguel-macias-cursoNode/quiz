@@ -29,3 +29,10 @@ nav span {
     color: #f61;
     font-size: smaller;
 }
+a.boton {
+    text-decoration: none;
+    border: solid 1px;
+    background-color: aliceblue;
+    color: black;
+    padding: 0 2px;
+}
