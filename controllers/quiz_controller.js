@@ -2,7 +2,12 @@
 
 // AutoLoad: factoriza el código si la ruta incluye :quizId
 exports.load = function (req, res, next, quizId) {
-    models.Quiz.find(quizId)
+    models.Quiz.find(
+        {
+            where: { id: Number(quizId) },
+            include: [{ model: models.Comment }]
+        }
+    )
       .then(
         function (quiz) {
             if (quiz) {

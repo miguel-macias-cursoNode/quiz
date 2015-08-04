@@ -4,3 +4,15 @@
 	     <input type="text" name="respuesta" id="txtRespuesta" placeholder="Responda aquí" /></p>
 	  <p><input type="submit" value="Responder" /></p>
 	</form>
+
+<p><a href="/quizes/<%= quiz.id %>/comments/new" class="boton">Nuevo comentario</a></p>
+<p><strong>Comentarios:</strong></p>
+<ul>
+<%
+for (var index in quiz.Comments) {
+%>
+  <li><%= quiz.Comments[index].texto %></li>
+<%
+}
+%>
+</ul>
