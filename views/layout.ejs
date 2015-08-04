@@ -27,8 +27,9 @@
     <section class="main" id="s1">
 		<% if (Object.keys(Object(errors)).length) { %>
 		<span id="ErrorMsgs">Corregir errores:<br />
+		<%= JSON.stringify(errors) %>
 		  <% for (var e in errors) { %>
-		  <span><%= JSON.stringify(errors[e]) %></span>
+		  <span><%= errors[e][0] %></span>
 		  <% } %>
 		</span>
 		<% } %>
