@@ -23,14 +23,14 @@ exports.load = function (req, res, next, quizId) {
 exports.show = function (req, res) {
     res.render(
         'quizes/show',
-        { quiz: req.quiz, errors: [] });
+        { quiz: req.quiz, errors: {} });
 };
 exports.answer = function (req, res) {
     res.render(
         'quizes/answer',
         {
             quiz: req.quiz,
-            errors: [],
+            errors: {},
             respuesta: (req.query.respuesta.trim().toLowerCase() == req.quiz.respuesta.toLowerCase())? 
                    "Correcto":
                    "Incorrecto"
@@ -50,7 +50,7 @@ exports.index = function (req, res) {
     }
     models.Quiz.findAll(opsQuery).then(
         function (quizes) {
-            res.render('quizes/index.ejs', { quizes: quizes, search: buscando, errors: [] });
+            res.render('quizes/index.ejs', { quizes: quizes, search: buscando, errors: {} });
         }
     ).catch(function (error) { next(error); });
 };
@@ -62,7 +62,7 @@ exports.new = function (req, res) {
         }
     );
     
-    res.render('quizes/new', { quiz: quiz, errors: [] });
+    res.render('quizes/new', { quiz: quiz, errors: {} });
 };
 exports.create = function (req, res) {
     var quiz = models.Quiz.build(req.body.quiz);
