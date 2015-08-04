@@ -2,7 +2,17 @@
   <p><input type="text" name="search" placeholder="introduzca texto" value="<%= search %>" /> <input type="submit" value="Buscar" /></p>
 </form>
 <table>
-<% var i; for (i= 0; i < quizes.length; ++i) { %>
+<% 
+  var i, temaActual;
+  temaActual= '';
+  for (i= 0; i < quizes.length; ++i) {
+    if (quizes[i].tema != temaActual) {
+      temaActual= quizes[i].tema;
+%>
+<tr><td><%= temaActual %></td></tr>
+<%
+    }
+%>
 <tr><td><a href="quizes/<%= quizes[i].id %>"><%= quizes[i].pregunta %></a></td>
     <td><a href="quizes/<%= quizes[i].id %>/edit" class="boton">editar</a></td>
     <td><form method="post" action="quizes/<%= quizes[i].id %>?_method=delete">

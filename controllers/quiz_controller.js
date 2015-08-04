@@ -41,7 +41,7 @@ exports.index = function (req, res) {
     
     buscando = req.query.search || '';
     opsQuery = {
-        order: 'pregunta'
+        order: ['tema', 'pregunta']
     };
     if (/\S/.test(buscando)) {
         opsQuery.where = [
