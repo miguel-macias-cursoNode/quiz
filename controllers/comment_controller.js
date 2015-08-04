@@ -24,7 +24,10 @@ exports.create = function (req, res) {
     )
         .success(
         function () {
-            res.redirect('/quizes/' + req.params.quizId);
+            res.redirect('/quizes/' + req.params.quizId + '?param=' + encodeURIComponent(JSON.stringify({
+                texto: req.body.comment.texto,
+                Quizid: req.params.quizId
+            })));
         }
     );
 };
