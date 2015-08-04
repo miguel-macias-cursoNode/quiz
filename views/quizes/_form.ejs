@@ -2,5 +2,18 @@
 <input type="text" id="preg" name="quiz[pregunta]" value="<%= quiz.pregunta %>" /></p>
 <p><label for="resp" class="rem">Respuesta:</label>
 <input type="text" id="resp" name="quiz[respuesta]" value="<%= quiz.respuesta %>" /></p>
+<p><label for="tema" class="rem">Tema:</label>
+<select id="tema" name="quiz[tema]">
+<%
+  var opcTema= {otro: "Otro", humanidades: "Humanidades", ocio: "Ocio", ciencia: "Ciencia", tecnologia: "Tecnología"};
+  for (var opc in opcTema) {
+    if (opcTema.hasOwnProperty(opc)) {
+%>
+<option value="<%= opc %>"<%= (opc == quiz.tema)? ' selected="selected"': '' %>><%= opcTema[opc] %></option>
+<%
+    }
+  }
+%>
+</select>
 <p><a href="/quizes" class="boton">Cancelar</a>
   <input type="submit" value="Guardar" /></p>
