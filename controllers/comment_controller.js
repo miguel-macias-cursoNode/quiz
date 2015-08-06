@@ -9,7 +9,7 @@ exports.create = function (req, res) {
     var comment = models.Comment.build(
         {
             texto: req.body.comment.texto,
-            Quizid: req.params.quizId
+            QuizId: req.params.quizId
         }
     );
     // guarda en BD
@@ -26,7 +26,7 @@ exports.create = function (req, res) {
         function () {
             res.redirect('/quizes/' + req.params.quizId + '?param=' + encodeURIComponent(JSON.stringify({
                 texto: req.body.comment.texto,
-                Quizid: req.params.quizId
+                QuizId: req.params.quizId
             })));
         }
     );

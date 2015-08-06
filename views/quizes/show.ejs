@@ -9,9 +9,9 @@
 <p><strong>Comentarios:</strong></p>
 <ul>
 <%
-for (var index in quiz.Comments) {
+for (var i=0; index < quiz.comments.length; ++i) {
 %>
-  <li><%= quiz.Comments[index].texto %></li>
+  <li><%= quiz.comments[i].texto %></li>
 <%
 }
 %>
