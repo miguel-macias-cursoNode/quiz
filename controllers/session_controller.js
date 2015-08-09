@@ -19,12 +19,12 @@ exports.create = function (req, res) {
             }
             else {
                 req.session.user = { id: user.id, username: user.username };
-                req.redirect(req.sessios.redir.toString());
+                req.redirect(req.session.redir.toString());
             }
         }
     );
 };
 exports.destroy = function (req, res) {
     delete req.session.user;
-    res.redirectreq.sessios.redir.toString());
+    res.redirect (req.session.redir.toString());
 };
