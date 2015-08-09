@@ -3,8 +3,8 @@
 // DATABASE_URL (variable de entorno)
 //  Postgres: postgres://user:password@host:port/database
 //  SQLite:   sqlite://:@:/
-var url = /^([^:]+):\/\/([^:]*):([^@]*)@([^:]*):([^\/]*)\/(.*)$/.exec (process.env.DATABASE_URL);
-var storage = process.env.DATABASE_STORAGE; // sólo necesario para SQLite
+var url = /^([^:]+):\/\/([^:]*):([^@]*)@([^:]*):([^\/]*)\/(.*)$/.exec (process.env.DATABASE_URL || 'sqlite://:@:/');
+var storage = process.env.DATABASE_STORAGE || 'quiz.sqlite'; // sólo necesario para SQLite
 
 // cargar modelo ORM
 var Sequelize = require('sequelize');
