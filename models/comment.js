@@ -9,6 +9,10 @@ module.exports = function (sequelize, dataTypes) {
                 validate: {
                     notEmpty: { msg: "-> Falta el comentario" }
                 }
+            },
+            publicado: {
+                type: dataTypes.BOOLEAN,
+                defaultValue: false
             }
         }
     );
