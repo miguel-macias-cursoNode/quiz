@@ -34,7 +34,7 @@ app.use(function (req, res, next) {
         req.session.redir = req.path;
     }
     // pasamos la sesión a las vistas
-    req.locals.session = req.session;
+    res.locals.session = req.session;
     next();
 });
 

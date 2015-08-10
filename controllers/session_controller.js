@@ -14,12 +14,12 @@ exports.create = function (req, res) {
     userController.autenticar(login, password,
         function (error, user) {
             if (error) {
-                req.session.errors = [{ message: "Se ha producido el error: " + error }];
+                req.session.errors = { login: ['-> ' + error.message]};
                 res.redirect('/login');
             }
             else {
                 req.session.user = { id: user.id, username: user.username };
-                req.redirect(req.session.redir.toString());
+                res.redirect(req.session.redir.toString());
             }
         }
     );
