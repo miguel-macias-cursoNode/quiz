@@ -9,12 +9,12 @@ exports.show = function (req, res) {
         quest_comm: 0
     };
     // consultas
-    Quiz.count().then(
+    models.Quiz.count().then(
         function (valor) {
             datos.questions = valor;
         }
     );
-    Comment.count().then(
+    models.Comment.count().then(
         function (valor) {
             datos.comments = valor;
         }
