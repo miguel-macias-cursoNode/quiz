@@ -16,7 +16,7 @@ for (var i=0; i < quiz.comments.length; ++i) {
 <%
   if (!quiz.comments[i].publicado) {
 %>
-  <a href="/quizes/<%= quiz.id %>/comments/<%= quiz.comments[i].id/publish" class="boton">publicar</a>
+  <a href="/quizes/<%= quiz.id %>/comments/<%= quiz.comments[i].id %>/publish" class="boton">publicar</a>
 <%
   }
 %>
