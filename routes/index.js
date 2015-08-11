@@ -35,7 +35,7 @@ router.post('/quizes/:quizId(\\d+)/comments',                         commentCon
 router.get('/quizes/:quizId(\\d+)/comments/:commentId(\\d+)/publish', commentController.publish);
 
 /* Estadísticas */
-router.get('quizes/statistics', statisticsController.show);
+router.get('/quizes/statistics', statisticsController.show);
 
 /* credits */
 router.get('/author', function (req, res) {
