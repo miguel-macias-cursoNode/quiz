@@ -8,5 +8,5 @@ exports.show = function (req, res) {
         quest_nocom: 0,
         quest_comm: 0
     };
-    res.render('statistics/show', { statistics: datos });
+    res.render('statistics/show', { statistics: datos, errors: {} });
 };
