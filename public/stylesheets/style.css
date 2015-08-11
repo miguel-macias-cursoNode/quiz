@@ -43,3 +43,6 @@ td.tema {
     color: white;
     text-align:left;
 }
+.right {
+    float: right;
+}
