@@ -8,5 +8,17 @@ exports.show = function (req, res) {
         quest_nocom: 0,
         quest_comm: 0
     };
+    // consultas
+    Quiz.count().then(
+        function (valor) {
+            datos.questions = valor;
+        }
+    );
+    Comment.count().then(
+        function (valor) {
+            datos.comments = valor;
+        }
+    );
+    // mostramos el resultado
     res.render('statistics/show', { statistics: datos, errors: {} });
 };
