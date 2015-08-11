@@ -33,6 +33,14 @@ app.use(function (req, res, next) {
     if (!/\/log(in|out)/.test(req.path)) {
         req.session.redir = req.path;
     }
+    // auto-logout
+    if (req.session.user) {
+        if (req.session.timestamp < Date.now() - 120000) {
+            delete req.session.user;
+        }
+    }
+    req.session.timestamp = Date.now();
+
     // pasamos la sesión a las vistas
     res.locals.session = req.session;
     next();
