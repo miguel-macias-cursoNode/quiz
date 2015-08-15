@@ -9,19 +9,20 @@ exports.show = function (req, res) {
         quest_comm: 0
     };
     // consultas
+        // en Postgres hay que encerrar entre comillas los identificadores (en SQLite no)
     var queries = {
-        questions: ['SELECT COUNT(id) AS valor',
-                    'FROM Quizzes'].join (" "),
-        comments: ['SELECT COUNT(id) AS valor',
-                   'FROM Comments'].join(" "),
+        questions: ['SELECT COUNT(id) AS "valor"',
+                    'FROM "Quizzes"'].join (" "),
+        comments: ['SELECT COUNT(id) AS "valor"',
+                   'FROM "Comments"'].join(" "),
 /*
         com_question:["SELECT AVG(comments) AS valor",
                       "FROM (SELECT Q.id, COUNT(C.id) AS comments",
                             "FROM Quizzes AS Q LEFT JOIN Comments AS C ON Q.id=C.QuizId",
                             "GROUP BY Q.id)"].join(" "),
 */
-        quest_nocom: ["SELECT COUNT(Q.id) AS valor",
-                      "FROM Quizzes AS Q LEFT JOIN Comments AS C ON Q.id=C.QuizId",
+        quest_nocom: ['SELECT COUNT(Q.id) AS "valor"',
+                      'FROM "Quizzes" AS Q LEFT JOIN "Comments" AS C ON Q.id=C.QuizId',
                       "WHERE C.id IS NULL"].join(" "),
 /*
         quest_comm: ["SELECT COUNT(quiz) AS valor",
