@@ -38,7 +38,7 @@ exports.show = function (req, res) {
     // resultados
     // (esperamos a que terminen todas las consultas)
     setTimeout(function espera () {
-        if (datos.quest_nocom >= 0) {
+        if (datos.quest_comm >= 0) {
             res.render('statistics/show', { statistics: datos, errors: {} });
         }
         else
