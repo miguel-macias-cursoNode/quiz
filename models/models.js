@@ -33,6 +33,7 @@ Quiz.hasMany(Comment);      // 1 pregunta -> N comentarios
 
 exports.Quiz = Quiz;                    // exportamos la definición
 exports.Comment = Comment;              // exportamos la definición
+exports.sequelize = sequelize;          // exportamos el acceso a la BD
 
 // crear e inicializar la tabla de preguntas
 sequelize.sync().success(
