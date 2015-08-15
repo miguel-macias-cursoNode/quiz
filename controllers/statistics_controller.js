@@ -28,7 +28,7 @@ exports.show = function (req, res) {
     };
     Object.keys(queries).forEach(
         function (dato) {
-            models.query(queries[dato]).spread(
+            models.sequelize.query(queries[dato]).spread(
                 function (valor) {
                     datos[dato] = valor;
                 }
