@@ -2,7 +2,7 @@
 <ul>
   <li>Preguntas (total):&nbsp;<%= statistics.questions %></li>
   <li>Comentarios (total):&nbsp;<%= statistics.comments %></li>
-  <li>Media comentarios/pregunta:&nbsp;<%= statistics.com_question %></li>
+  <li>Media comentarios/pregunta:&nbsp;<%= statistics.com_question.toFixed(2) %></li>
   <li>Preguntas sin comentarios:&nbsp;<%= statistics.quest_nocom %></li>
   <li>Preguntas con comentarios:&nbsp;<%= statistics.quest_comm %></li>
 </ul>
