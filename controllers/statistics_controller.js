@@ -48,7 +48,9 @@ exports.show = function (req, res) {
             if (datos.quest_nocom >= 0) {
                 // hay datos que calculamos a partir de otros
                 datos.quest_comm = datos.questions - datos.quest_nocom;
-                datos.com_question = datos.comments / datos.questions;
+                datos.com_question = (datos.questions > 0) ?
+                    datos.comments / datos.questions:
+                    0;
                 res.render('statistics/show', { statistics: datos, errors: {} });
             }
             else
