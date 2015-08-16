@@ -1,7 +1,7 @@
 ﻿var users = {
     admin:      {id: 1, clave: 'e52abac2b2fbb9ae43a05e6a36531b619a9dc197'},
-    pepe:       { id: 2, clave: '' }, // desactivado
-    evaluador:  { id: 3, clave: 'fe70f207f7616458a18339b3cd310da6e1ca77e9' }
+    pepe:       {id: 2, clave: '' },    // desactivado
+    evaluador:  {id: 3, clave: 'fe70f207f7616458a18339b3cd310da6e1ca77e9' }
 };
 
 exports.autenticar = function (login, password, callback) {
